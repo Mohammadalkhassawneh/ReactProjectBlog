@@ -96,7 +96,7 @@ class Form extends Component {
           {this.state.password == "" || this.state.password.length < 6 ? (
             <span style={{ color: "red" }}>not correct password </span>
           ) : null}
-          <label htmlFor="r.password">Reapeat-password:</label>
+          <label htmlFor="r.password">Reapeat-password</label>
           <input
             id="4"
             name="Rpassword"

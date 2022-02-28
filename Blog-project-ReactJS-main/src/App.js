@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       post: [],
       newMe: "",
-      countLike: 0,
+
       userAvatar: "https://picsum.photos/id/237/200/300",
     };
   }
@@ -22,9 +22,6 @@ class App extends Component {
     });
   };
 
-  handleLikeBtn = () => {
-    this.setState({ countLike: this.state.countLike + 1 });
-  };
   handleSubmit = (e) => {
     e.preventDefault();
     console.log("heet");
@@ -51,7 +48,6 @@ class App extends Component {
             willOnChange={this.handlePost}
             willOnSubmit={this.handleSubmit}
             willhandleLikeBtn={this.handleLikeBtn}
-            counterLikes={this.state.countLike}
             userAvatar={this.state.userAvatar}
           />
           {/* <Post

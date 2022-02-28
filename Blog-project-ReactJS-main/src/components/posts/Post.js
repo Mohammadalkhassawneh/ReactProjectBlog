@@ -2,6 +2,17 @@ import React, { useState } from "react";
 import "./post.css";
 import moment from "moment";
 function Post(props) {
+  let d = new Date();
+  let tdate = d.getDate();
+  let month = d.getMonth() + 1;
+  let year = d.getUTCFullYear();
+  if (tdate < 10) {
+    tdate = "0" + tdate;
+  }
+  if (month < 10) {
+    month = "0" + month;
+  }
+  let minDate = year + "-" + month + "-" + tdate;
   const [user, setUser] = useState(
     localStorage.getItem("user")
       ? JSON.parse(localStorage.getItem("user"))
@@ -34,9 +45,6 @@ function Post(props) {
         <div className="postCenter">
           <span className="postText">"{props.post}"</span>
         </div>
-        <div className="comment">
-          {comments.length > 0 && comments.map((comment) => <h3>{comment}</h3>)}
-        </div>
         <div className="postBottom">
           <div className="postBottomLeft">
             <button className="like-btn" onClick={handleLikeBtn}>
@@ -44,13 +52,31 @@ function Post(props) {
             </button>
           </div>
           <div className="postBottomRight">
-            <span className="comment-btn" onClick={handleAddComment}>
-              comment
-            </span>
             <input
               type="text"
+              placeholder="write your comment ..."
               onChange={(e) => setCommentContent(e.target.value)}
+              className="comment-input"
             />
+            <span className="comment-btn" onClick={handleAddComment}>
+              <i class="fa-solid fa-comment"></i>
+            </span>
+          </div>
+        </div>
+        <div className="comment">
+          <div>
+            {comments.length > 0 &&
+              comments.map((comment) => (
+                <div className="comment-container">
+                  <div className="avatarImage">
+                    <img src="https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png" />
+                  </div>
+                  <div className="comments-section">
+                    <h3>{comment}</h3>
+                    <h5 className="date-field">Date:{minDate}</h5>
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       </div>

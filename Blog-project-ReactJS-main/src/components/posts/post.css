@@ -1,6 +1,7 @@
 .post {
   width: 100%;
   border-radius: 20px;
+  padding: 1em;
   margin: 1.5em 0;
   -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
   box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
@@ -18,7 +19,7 @@
   display: flex;
   align-items: center;
 }
-.postTopLeft img {
+img {
   width: 2em;
 }
 .username-name {
@@ -38,8 +39,16 @@
 }
 .postBottom {
   display: flex;
+  flex-direction: column;
+}
+.postBottomRight {
+  display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: end;
+}
+.postBottomRight .comment-input {
+  border-radius: 30px;
+  width: 70%;
 }
 .postBottomLeft {
   display: flex;
@@ -48,17 +57,40 @@
 .like-btn {
   margin: 1em;
   border-radius: 10px;
-  padding: 0.7em;
+  border: none;
+  padding: 0.7em 1em;
   background-color: blue;
   color: aliceblue;
   cursor: pointer;
 }
 .like-btn:hover {
-  transform: scale(1.1);
+  background-color: rgb(0, 0, 194);
 }
 .postLikeCounter {
   font-size: 1.2rem;
   margin: 0 1em;
+}
+.post .comment-container {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin: 0.5em;
+}
+.post .comment-container .comments-section {
+  display: flex;
+  justify-content: space-around;
+  background: #f0f2f5;
+  border-radius: 15px;
+  color: rgb(82, 80, 80);
+  width: 90%;
+  margin-left: 1em;
+}
+.post .comment-container .comments-section .date-field {
+  font-weight: 100;
+  color: #b1b1b1;
+}
+.post .comment-container h3 {
+  margin-top: 1em;
 }
 .comment-btn {
   cursor: pointer;

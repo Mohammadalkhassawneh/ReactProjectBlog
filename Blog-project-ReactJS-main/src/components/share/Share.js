@@ -8,6 +8,7 @@ function Share({
   post,
   willhandleLikeBtn,
   counterLikes,
+  userAvatar,
 }) {
   return (
     <div className="share">
@@ -33,6 +34,7 @@ function Share({
           post={post}
           willhandleLikeBtn={willhandleLikeBtn}
           counterLikes={counterLikes}
+          userAvatar={userAvatar}
         />
       ))}
     </div>
